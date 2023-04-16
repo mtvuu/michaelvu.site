@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Michael Vu">
+    <meta name="description" content="Michael Vu's Portfolio">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </link>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet"
+        type='text/css'>
+    <title>Michael Vu's Portfolio Site</title>
+</head>
+
+<body>
+    <header>
+        <a href="#about" class="nav-buttons"><i class="fa-solid fa-id-card"></i></a>
+        <a href="#work" class="nav-buttons"><i class="fa-solid fa-briefcase"></i></a>
+        <a href="#projects" class="nav-buttons"><i class="fa-solid fa-brain"></i></a>
+        <a href="#contact" id="contact-button" class="nav-buttons"><i class="fa-solid fa-envelope"></i></a>
+    </header>
+
+    <main>
+        <div id="about">
+            <i id="left" class="about-turn fa-solid fa-chevron-left"></i>
+            <table>
+                <tr>
+                    <td class="about-text">
+                        <h1 class="about-text" id="name">Michael Vu</h1>
+                        <h2 class="about-text">Front End / Computer Engineer </h2>
+                        <aside>
+                            <pre
+                                class="about-text"><strong>Javascript | CSS | HTML | React | SwiftUI | Java</strong></pre>
+                        </aside>
+                    </td>
+                    <td>
+                        <div id="portrait" alt="portrait"></div>
+                    </td>
+                </tr>
+            </table>
+            <i id="right" class="about-turn fa-solid fa-chevron-right"></i>
+        </div>
+
+        <!-- <section id="projects">
+        <h1 id="project-title" class="main-text">Projects</h1><br>
+        <div id="project-btns">
+            <button id="project1" class="project-btn open" >
+                <div class="project-details">
+                    <img class="project-img" src="./assets/sneakerslogo.png">
+                    <p class="project-summary">The Higher Lower Sneakers App, created with React, is a way for sneaker-heads to test their knowledge of the current sneaker market. Given two different shoes, the user will have to determine which shoe is currently worth more on the sneaker market.</p>
+                </div>
+                <img class="project-demo" src="./assets/sneaks_demo.gif">
+            </button>
+            <button id="project2" class="project-btn open" >
+                <div class="project-details">
+                    <img class="project-img" src="./assets/quickanimelistlogo.png">
+                    <p class="project-summary">The Higher Lower Sneakers App, created with React, is a way for sneaker-heads to test their knowledge of the current sneaker market. Given two different shoes, the user will have to determine which shoe is currently worth more on the sneaker market.</p>
+                </div>
+                <img class="project-demo" src="./assets/sneaks_demo.gif">
+            </button>
+            <button id="project3" class="project-btn open" >
+                <div class="project-details">
+                    <img class="project-img" src="./assets/sneakerslogo.png">
+                    <p class="project-summary">The Higher Lower Sneakers App, created with React, is a way for sneaker-heads to test their knowledge of the current sneaker market. Given two different shoes, the user will have to determine which shoe is currently worth more on the sneaker market.</p>
+                </div>
+                <img class="project-demo" src="./assets/sneaks_demo.gif">
+            </button>
+        </div>
+    </section> -->
+
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.6/purify.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script>
+        const expandProject = (projectID) => {
+            let project = document.getElementById(projectID);
+            let projects = document.getElementsByClassName('project-btn');
+            if (project.classList.contains('expand')) {
+                for (const proj of projects) {
+                    proj.classList.remove('shrink');
+                    proj.classList.add('open');
+                }
+                project.classList.remove('expand');
+            }
+            else {
+                for (const proj of projects) {
+                    proj.classList.add('shrink');
+                    proj.classList.remove('open');
+                }
+                project.classList.remove('shrink');
+                project.classList.add('expand');
+                console.log('test')
+            }
+        }
+
+        const aboutRight = () => {
+            let aboutText = document.getElementsByClassName("about-text");
+            let portrait = document.getElementById("portrait");
+            portrait.classList.add('right');
+            for (const text of aboutText) {
+                text.classList.add('right');
+            }
+        }
+        const aboutLeft = () => {
+            let aboutText = document.getElementsByClassName("about-text");
+            let portrait = document.getElementById("portrait");
+            portrait.classList.remove('right');
+            for (const text of aboutText) {
+                text.classList.remove('right');
+            }
+        }
+
+        // let project1Btn = document.getElementById('project1');
+        // project1Btn.addEventListener('click', () => {
+        //     expandProject('project1');
+        //     console.log('didkc')
+        // });
+        // let project2Btn = document.getElementById('project2');
+        // project2Btn.addEventListener('click', () => {
+        //     expandProject('project2');
+        // });
+        // let project3Btn = document.getElementById('project3');
+        // project3Btn.addEventListener('click', () => {
+        //     expandProject('project3');
+        // });
+
+        let rightBtn = document.getElementById('right');
+        rightBtn.addEventListener('click', aboutRight);
+
+        let leftBtn = document.getElementById('left');
+        leftBtn.addEventListener('click', aboutLeft);
+    </script>
+
+</body>
+
+</html>
